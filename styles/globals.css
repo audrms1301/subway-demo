@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+/* MagicMirror 전체 레이아웃 */
+.mirror {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 40px;
+  gap: 20px;
+}
+
+/* 4개 구역 */
+.region-top-left {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.region-top-right {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.region-bottom-left {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.region-bottom-right {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* 시계 모듈 */
+.clock-time {
+  font-size: 96px;
+  font-weight: 100;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.clock-date {
+  font-size: 28px;
+  font-weight: 300;
+  color: #ccc;
+  margin-top: 8px;
+}
+
+.clock-day {
+  font-size: 20px;
+  font-weight: 300;
+  color: #999;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* 달력 모듈 */
+.calendar {
+  margin-top: 30px;
+  width: 320px;
+}
+
+.calendar-header {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 14px;
+}
+
+.calendar-grid .day-header {
+  text-align: center;
+  color: #666;
+  font-size: 11px;
+  padding: 4px 0;
+  font-weight: 400;
+}
+
+.calendar-grid .day {
+  text-align: center;
+  padding: 5px 2px;
+  border-radius: 4px;
+  color: #ccc;
+}
+
+.calendar-grid .day.today {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.calendar-grid .day.other-month {
+  color: #444;
+}
+
+.calendar-grid .day.sunday {
+  color: #c0392b;
+}
+
+.calendar-grid .day.saturday {
+  color: #2980b9;
+}
+
+/* 날씨 모듈 */
+.weather {
+  text-align: right;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.weather-icon {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.weather-temp {
+  font-size: 80px;
+  font-weight: 100;
+  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 1;
+}
+
+.weather-temp span {
+  font-size: 36px;
+  vertical-align: super;
+}
+
+.weather-label {
+  font-size: 20px;
+  color: #ccc;
+  margin-top: 8px;
+}
+
+.weather-detail {
+  font-size: 14px;
+  color: #777;
+  margin-top: 6px;
+}
+
+.weather-minmax {
+  font-size: 16px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* 지하철 모듈 */
+.subway {
+  text-align: right;
+  min-width: 280px;
+}
+
+.subway-title {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.subway-line-badge {
+  display: inline-block;
+  background: #00a2d9;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0;
+}
+
+.subway-direction {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.subway-direction::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #444;
+}
+
+.subway-train {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.subway-train-dest {
+  font-size: 15px;
+  color: #bbb;
+}
+
+.subway-train-time {
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.subway-train-time.arriving {
+  color: #f39c12;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.subway-divider {
+  height: 1px;
+  background: #1a1a1a;
+  margin: 12px 0;
+}
+
+.subway-updated {
+  font-size: 11px;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* 로딩 */
+.loading {
+  color: #555;
+  font-size: 14px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* 데모 배지 */
+.demo-badge {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #333;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
